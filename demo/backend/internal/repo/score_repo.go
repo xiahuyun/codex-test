@@ -18,7 +18,8 @@ type CreateScoreInput struct {
 	Score      int
 	Mode       model.Mode
 	DurationMS int
-	CreatedAt  time.Time
+
+	CreatedAt time.Time
 }
 
 type ScoreRepository interface {
