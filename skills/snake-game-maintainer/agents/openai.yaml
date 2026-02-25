@@ -1,0 +1,4 @@
+interface:
+  display_name: "Snake Game Maintainer"
+  short_description: "Maintain and extend the codex-test snake game with test-first, deterministic logic changes."
+  default_prompt: "Update this snake game safely and keep all game-logic tests passing."
