@@ -1,0 +1,48 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: snake-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: snake
+      POSTGRES_PASSWORD: snake
+      POSTGRES_DB: snake
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U snake -d snake"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: ./backend
+    container_name: snake-backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PORT: "8080"
+      CORS_ORIGIN: "http://localhost:5173"
+      DATABASE_URL: "postgres://snake:snake@db:5432/snake?sslmode=disable"
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE: "http://localhost:8080"
+    container_name: snake-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "5173:4173"
+
+volumes:
+  pgdata:
