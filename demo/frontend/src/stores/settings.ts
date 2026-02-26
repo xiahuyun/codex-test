@@ -3,8 +3,8 @@ import { ref, computed } from 'vue';
 import type { Difficulty, GameMode, Theme } from '../game/types';
 
 const DIFFICULTY_INTERVALS: Record<Difficulty, number> = {
-  easy: 160,
-  normal: 120,
+  easy: 200,
+  normal: 160,
   hard: 90,
 };
 

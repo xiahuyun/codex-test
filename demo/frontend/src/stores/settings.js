@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 const DIFFICULTY_INTERVALS = {
-    easy: 160,
-    normal: 120,
+    easy: 200,
+    normal: 160,
     hard: 90,
 };
 export const useSettingsStore = defineStore('settings', () => {

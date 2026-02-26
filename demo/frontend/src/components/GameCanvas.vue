@@ -18,9 +18,9 @@ const wrapperRef = ref<HTMLElement | null>(null);
 let cleanupSwipe: (() => void) | null = null;
 
 const themePalette: Record<Theme, { bg: string; snake: string; food: string; obstacle: string; grid: string }> = {
-  sunset: { bg: '#1f1f25', snake: '#ffd166', food: '#ef476f', obstacle: '#4a4e69', grid: '#2f3244' },
-  mint: { bg: '#0f1e1e', snake: '#95d5b2', food: '#ff6b6b', obstacle: '#2d6a4f', grid: '#1a3d3a' },
-  mono: { bg: '#111', snake: '#ddd', food: '#fff', obstacle: '#666', grid: '#222' },
+  sunset: { bg: '#1f1f25', snake: '#ffd60a', food: '#ef476f', obstacle: '#4a4e69', grid: '#2f3244' },
+  mint: { bg: '#0f1e1e', snake: '#ffd60a', food: '#ff6b6b', obstacle: '#2d6a4f', grid: '#1a3d3a' },
+  mono: { bg: '#111', snake: '#ffd60a', food: '#fff', obstacle: '#666', grid: '#222' },
 };
 
 function draw(): void {
